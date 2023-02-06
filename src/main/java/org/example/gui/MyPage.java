@@ -50,8 +50,8 @@ public class MyPage {
 
                 case 'k' -> {
                     System.out.println("Vilken kategory?");
-                    String  size = IN.next();
-                    filterProduct(size,(p, s) -> s.equalsIgnoreCase(p.getCategoryType().name()));
+                    String  category = IN.next();
+                    filterProduct(category,(p, s) -> s.equalsIgnoreCase(p.getCategoryType().name()));
                 }
                 case 's' -> {
                     System.out.println("Vilket storlek?");
@@ -60,18 +60,18 @@ public class MyPage {
                 }
                 case 'm' -> {
                     System.out.println("Vilken märke?");
-                    String  size = IN.next();
-                    filterProduct(size,(p, s) -> s.equalsIgnoreCase(p.getMarke()));
+                    String  brand = IN.next();
+                    filterProduct(brand,(p, s) -> s.equalsIgnoreCase(p.getMarke()));
                 }
                 case 'f' -> {
                     System.out.println("Vilken färg?");
-                    String  size = IN.next();
-                    filterProduct(size,(p, s) -> s.equalsIgnoreCase(p.getColor()));
+                    String  color = IN.next();
+                    filterProduct(color,(p, s) -> s.equalsIgnoreCase(p.getColor()));
                 }
                 case 'a' -> {
                     System.out.println("Vilken avdelning?");
-                    String  size = IN.next();
-                    filterProduct(size,(p, s) -> s.equalsIgnoreCase(p.getSectionType().name()));
+                    String  section = IN.next();
+                    filterProduct(section,(p, s) -> s.equalsIgnoreCase(p.getSectionType().name()));
                 }
                 case 'b' -> {
                     makeAOrder();
@@ -81,7 +81,6 @@ public class MyPage {
         }
     }
     private List<Product> filterProduct(String searchAttribute, ProductSearcherInterface psi){
-
         List<Product> products = dao.getAllProduct().stream()
                 .filter(p -> psi.search(p, searchAttribute))
                 .toList();
@@ -94,10 +93,12 @@ public class MyPage {
 
         System.out.println("Du har redan detta beställning nummer: "+ allOrderByUser.stream().map(Basket::getOrderID).toList());
 
-        System.out.println("Ange beställningsnummer och artikelnummer: ");
-
+        System.out.println("Ange beställningsnummer : ");
         String orderId = IN.next();
+
+        System.out.println("Ange artikelnummer : ");
         int productId = IN.nextInt();
+
         boolean b = dao.addToCart(user.getId(), orderId, productId);
         if (b) {
             System.out.printf("Produkt med id= %d är adderat i beställning id=%s\n", productId, orderId);

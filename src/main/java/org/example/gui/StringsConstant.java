@@ -8,14 +8,14 @@ public class StringsConstant {
              *                                                                                           *
              *                                 Välkomen till Online Store                                   *
              *                                                                                           *
-             * Please enter your username and password:                                                  *
+             *                                                                                           *
              * ****************************************************************************************** """;
     public static final String MYPAGE =             """
              ********************************************************************************************
-             *          name:%7s    efternamn: %10s                  Today is: %10s         *
+             *          name:%7s    efternamn: %10s                  Today is: %10s             *
              *                                                                                           *
-             *     Total beställning: %5d                                                                    *
-             *     beställningsNr: %s                                                       *
+             *     Total beställning: %5d                                                              *
+             *     beställningsNr: %s                                    *
 
              *                                                                                           *
              * *******************************************************************************************\n""";

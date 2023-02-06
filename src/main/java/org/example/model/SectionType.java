@@ -8,10 +8,10 @@ public enum SectionType {
         this.value = value;
     }
 
-    public static SectionType getSectionTypeByValue(int value){
+    public static SectionType getSectionTypeByValue(int index){
         SectionType[] values = SectionType.values();
 
-        return  values[value-1];
+        return  values[index-1];
     }
 
 }
